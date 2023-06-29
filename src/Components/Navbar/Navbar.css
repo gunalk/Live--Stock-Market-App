@@ -1,0 +1,120 @@
+.navbar-container{
+  display:flex;
+  height:70px;
+  width:100%;
+  justify-content:space-evenly;
+  flex-wrap:wrap;
+  background-color:#047BD5;
+  color:white
+  
+  
+  
+}
+
+.title{
+       display:flex;
+       cursor: pointer;
+       gap:170px;
+}
+.title h3:hover{
+      color:orange
+}
+
+.input{
+
+     display: flex;
+     justify-content: space-between;
+     background-color: white;
+     border-radius: 2px;
+     height:36px;
+     margin-top:14px;
+     width:400px
+  
+   
+   
+}
+#input-box{
+  
+    padding:10px;
+    width: 100%;
+    border:none;
+    outline: none;
+    background:white
+  
+}
+
+.searchbtn{
+    height: 36px;
+    width: 44px;
+    border: none;
+    background: white;
+    font-size: 20px;
+    padding: 4px 12px 0px 8px;
+    color: #047BD5;
+    cursor: pointer;
+}
+.searchbtn:hover{
+  color:orange
+}
+.hamburger{
+    display: none;
+}
+
+
+@media screen and (max-width:1000px) {
+
+     .title{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        background: #047BD5;
+        position: absolute;
+        top:0;
+        left:-100%;
+        z-index: -3;
+        transition:0.3s;
+        color:white;
+        font-weight:600;
+    }
+    .title.active{
+        left:0;
+    }
+
+    .title h3:hover{
+      color:#F7A200;
+      border-bottom: 3px solid #F7A200
+    
+    }
+
+   
+    .hamburger{
+        display: initial;
+    }
+    .input{
+
+       display: flex;
+       background-color: white;
+       border-radius: 2px;
+       height:36px;
+       margin-top:14px;
+       width:250px
+}
+
+
+@media screen and (max-width:300px) {
+
+
+.input{
+
+       display: flex;
+       background-color: white;
+       border-radius: 2px;
+       height:36px;
+       margin-top:14px;
+       width:100px
+}
+
+
+  
