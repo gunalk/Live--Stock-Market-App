@@ -5,8 +5,9 @@
   justify-content:space-evenly;
   flex-wrap:wrap;
   background-color:#047BD5;
-  color:white
-  
+  color:white;
+  position:relative;
+  z-index:100000
   
   
 }
@@ -71,9 +72,10 @@
         height: 100vh;
         background: #047BD5;
         position: absolute;
-        top:0;
+        top:70px;
         left:-100%;
-        z-index: -3;
+        z-index:10000
+       
         transition:0.3s;
         color:white;
         font-weight:600;
@@ -101,7 +103,7 @@
        margin-top:14px;
        width:250px
 }
-
+  }
 
 @media screen and (max-width:300px) {
 
@@ -117,4 +119,4 @@
 }
 
 
-  
+  }

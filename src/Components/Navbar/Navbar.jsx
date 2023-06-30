@@ -30,7 +30,7 @@ const Navbar = () => {
         <h3  style={{fontWeight:"700"}} onClick={()=>navigate("/watchlist")}>WATCHLIST</h3>
       </div>
       <div className="input">
-        <input onChange={(e)=>setInput(e.target.value)} id="input-box" className="form-control" type="text"/>
+        <input onChange={(e)=>setInput(e.target.value)} id="input-box" className="form-control" type="text" placeholder='search for  company name,keyword'/>
         <button onClick={handleClick}className='searchbtn'>
             <IoSearch/>
         </button>
