@@ -5,11 +5,17 @@ import {addingToListItems}  from '../../../store/slice'
 
 const StockList = () => {
     const keyword = useSelector((state) => state.user.searchList);
+    const check = useSelector((state) => state.user.listItems);
+   
     const dispatch=useDispatch()
+    
     const [stockList, setStockList] = useState([]);
     const [loading, setLoading] = useState(false);
+    
     const handleClick=(item)=>{
       dispatch(addingToListItems(item))
+      
+      
     }
 
     const fetcher = () => {
@@ -36,12 +42,14 @@ const StockList = () => {
                                 let name = stocks[i]['2. name'];
                                 let resp = await fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${symbol}&apikey=${apiKey}`)
                                 let data = await resp.json();
-                                if (data && data["Time Series (Daily)"] && data["Time Series (Daily)"]["2023-06-26"]) {
-                                    let price = data["Time Series (Daily)"]["2023-06-26"]["4. close"];
+                               console.log(data,"data")
+                                if (data && data["Time Series (Daily)"] && data["Time Series (Daily)"]["2023-06-30"]) {
+                                    let price = data["Time Series (Daily)"]["2023-06-30"]["4. close"];
                                     _stockList.push({ symbol, name, price });
                                 }
                             }
                             setStockList(_stockList);
+                         
                             setLoading(false);
                         }
                         else alert("No relevant Stocks Found");
@@ -59,13 +67,18 @@ const StockList = () => {
         return (
             <div className="card">
                 {
-                    stockList.map(stock => {
+                    stockList.map((stock) => {
+                      
                         return (
                             <div className="cards" key={stock.symbol}>
                               <h4 style={{fontWeight:"500",color:"gray",letterSpacing:"1px"}}>Name:{stock.name}</h4>
                               <h4 style={{fontWeight:"500",color:"gray",letterSpacing:"1px"}}>Symbol:{stock.symbol}</h4>
                               <h4 style={{fontWeight:"500",color:"palevioletred",letterSpacing:"1px"}}>Stock Price:$ {stock.price}</h4>
-                              <button id="button" onClick={()=>handleClick(stock)}  className="btn btn-info">Add to Watchlist</button>
+                              
+                                   <button id="button" onClick={()=>handleClick(stock)}  className="btn btn-info">Add to Watchlist</button>                                                                                         
+                               
+                                  
+                               
                             </div>
                         )
                     })
