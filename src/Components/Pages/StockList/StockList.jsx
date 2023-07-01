@@ -5,8 +5,7 @@ import {addingToListItems}  from '../../../store/slice'
 
 const StockList = () => {
     const keyword = useSelector((state) => state.user.searchList);
-    const check = useSelector((state) => state.user.listItems);
-   
+  
     const dispatch=useDispatch()
     
     const [stockList, setStockList] = useState([]);
